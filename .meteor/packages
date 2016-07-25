@@ -22,3 +22,5 @@ angular2-compilers
 barbatus:angular2-runtime
 aldeed:collection2
 aldeed:simple-schema
+anti:fake
+percolate:migrations

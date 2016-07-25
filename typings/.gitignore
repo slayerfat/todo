@@ -1,3 +1,5 @@
 *
 !.gitignore
 !simple-schema.d.ts
+!fake.d.ts
+!migrations.d.ts

@@ -1,0 +1,8 @@
+<h1>Todo App</h1>
+<ul>
+  <li *ngFor="let todo of todos">
+    <p>{{ todo.owner }}</p>
+    <p>{{ todo.contents }}</p>
+    <p>{{ todo.completed }}</p>
+  </li>
+</ul>

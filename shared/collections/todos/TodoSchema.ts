@@ -1,12 +1,12 @@
-import { Mongo } from 'meteor/mongo';
+// import { Mongo } from 'meteor/mongo';
 
 export let TodoSchema: any = new SimpleSchema({
   _id: {
-    type: Mongo.ObjectID,
-    label: 'Product Id'
+    type: String,
+    label: 'Todo Id'
   },
   owner: {
-    type: Mongo.ObjectID,
+    type: String,
     label: 'The todo owner'
   },
   contents: {

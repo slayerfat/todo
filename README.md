@@ -8,3 +8,7 @@ To run:
 ```bash
 meteor
 ```
+
+## bonus
+
+- Created migrations classes.
