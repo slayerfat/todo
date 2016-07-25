@@ -21,3 +21,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 angular2-compilers
 barbatus:angular2-runtime
 aldeed:collection2
+aldeed:simple-schema
