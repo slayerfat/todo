@@ -1,5 +1,3 @@
-// import { Mongo } from 'meteor/mongo';
-
 export let TodoSchema: any = new SimpleSchema({
   _id: {
     type: String,
@@ -11,10 +9,25 @@ export let TodoSchema: any = new SimpleSchema({
   },
   contents: {
     type: String,
-    label: 'The contents of the Todo'
+    label: 'The contents of the Todo',
+    trim: true,
+    min: 5,
+    max: 255
   },
   completed: {
     type: Boolean,
-    label: 'is the Todo completed Flag'
-  }
+    label: 'is the Todo completed Flag',
+    defaultValue: false
+  },
+  updatedAt: {
+    type: Date,
+    label: 'Last date this was updated.',
+    autoValue: function () {
+      if (this.isInsert) {
+        return new Date();
+      } else if (this.isSet) {
+        this.unset();
+      }
+    }
+  },
 });
