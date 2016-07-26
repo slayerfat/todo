@@ -1,3 +1,7 @@
 .todo-button {
   margin: 0 !important;
 }
+
+.todo-text-completed {
+  text-decoration: line-through;
+}

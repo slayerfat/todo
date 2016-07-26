@@ -9,7 +9,8 @@
 <div class="row align-center">
   <div class="column small-8">
     <div class="callout" *ngFor="let todo of todos">
-      <p>
+      <p (click)="updateTodoStatus(todo)"
+         [ngClass]="todo.completed ? 'todo-text-completed' : ''">
         {{ todo.contents }}
       </p>
       <p>
@@ -19,7 +20,7 @@
              [ngClass]="todo.completed ? 'fa-check-circle' : 'fa-times-circle'">
           </i>
         </span>
-        <span class="button tiny todo-button">
+        <span class="button tiny todo-button" (click)="updateTodo(todo)">
           Update
         </span>
         <span class="button tiny alert todo-button"
