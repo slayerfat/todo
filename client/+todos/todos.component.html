@@ -1,14 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h1>Todo App</h1>
-      <ul>
-        <li *ngFor="let todo of todos">
-          <p>{{ todo.owner }}</p>
-          <p>{{ todo.contents }}</p>
-          <p>{{ todo.completed }}</p>
-        </li>
-      </ul>
+<div class="row">
+  <div class="column">
+    <h1>Todos</h1>
+  </div>
+</div>
+
+<div class="row align-center">
+  <div class="column small-8">
+    <div class="callout" *ngFor="let todo of todos">
+      <p>
+        {{ todo.contents }}
+        <span class="badge float-right"
+              [ngClass]="todo.completed ? 'success' : 'secondary'">
+          <i class="fa"
+             [ngClass]="todo.completed ? 'fa-check-circle' : 'fa-times-circle'">
+          </i>
+        </span>
+      </p>
     </div>
   </div>
 </div>

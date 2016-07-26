@@ -2,7 +2,8 @@
   "name": "todo",
   "private": true,
   "scripts": {
-    "start": "meteor run --settings meteor.json"
+    "start": "meteor run --settings meteor.json",
+    "postinstall": "./post-install.sh"
   },
   "dependencies": {
     "@angular/common": "^2.0.0-rc.4",
@@ -14,6 +15,8 @@
     "angular2-meteor": "^0.6.2",
     "angular2-meteor-auto-bootstrap": "^0.6.0",
     "angular2-meteor-polyfills": "^0.1.1",
+    "font-awesome": "^4.6.3",
+    "foundation-sites": "^6.2.3",
     "meteor-node-stubs": "^0.2.3",
     "reflect-metadata": "^0.1.3",
     "rxjs": "^5.0.0-beta.6",
