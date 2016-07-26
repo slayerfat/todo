@@ -11,12 +11,23 @@
     <div class="callout" *ngFor="let todo of todos">
       <p>
         {{ todo.contents }}
-        <span class="badge float-right"
+      </p>
+      <p>
+        <span class="badge"
               [ngClass]="todo.completed ? 'success' : 'secondary'">
           <i class="fa"
              [ngClass]="todo.completed ? 'fa-check-circle' : 'fa-times-circle'">
           </i>
         </span>
+        <span class="button tiny todo-button">
+          Update
+        </span>
+        <span class="button tiny alert todo-button"
+              (click)="removeTodo(todo)">
+          Remove
+        </span>
+
+        Created {{ todo.updatedAt | humanDiff }}
       </p>
     </div>
   </div>
