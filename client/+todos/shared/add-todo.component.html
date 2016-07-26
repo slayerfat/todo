@@ -1,0 +1,14 @@
+<form [ngFormModel]="todo" (submit)="addTodo(todo.value)">
+  <div class="input-group">
+        <span class="input-group-label">
+          <i class="fa fa-plus-circle"></i>
+        </span>
+    <input ngControl="contents"
+           class="input-group-field"
+           title="Add a new Todo"
+           placeholder="Add a new Todo">
+    <div class="input-group-button">
+      <button class="button" [disabled]="!todo.valid">Submit</button>
+    </div>
+  </div>
+</form>
