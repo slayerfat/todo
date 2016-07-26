@@ -1,6 +1,6 @@
 import { TodoMigration } from './TodoMigration';
 import { TodoCollection } from '../../shared/collections/todos/TodoCollection';
-import { Meteor } from 'meteor/meteor';
+import { APP_CONFIG } from '../../app-config';
 
 // TODO create real user migration.
 const user = {_id: '123'};
@@ -16,7 +16,7 @@ export function migrate() {
     down: todoMigration.down.bind(todoMigration)
   });
 
-  if (Meteor.settings.migrations.reset) {
+  if (APP_CONFIG.migrations.reset) {
     Migrations.migrateTo(0);
   }
 

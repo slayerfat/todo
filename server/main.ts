@@ -1,8 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { migrate } from './migrations/migrate';
+import { APP_CONFIG } from 'app-config.ts';
 
 Meteor.startup(() => {
-  if (Meteor.settings.migrations.migrate) {
+  if (APP_CONFIG.migrations.migrate) {
     migrate();
   }
 });
