@@ -13,6 +13,19 @@
          [ngClass]="todo.completed ? 'todo-text-completed' : ''">
         {{ todo.contents }}
       </p>
+
+      <form *ngIf="updating === todo"
+            (keydown.Escape)="updateTodo(false)"
+            (submit)="updateTodo()">
+        <input type="text"
+               title="Todo contents"
+               [(ngModel)]="todoInput"
+               (blur)="updateTodo()"
+               placeholder="{{ todo.contents }}">
+        <p *ngIf="todoInputError" class="help-text">
+          The new contents are invalid
+        </p>
+      </form>
       <p>
         <span class="badge"
               [ngClass]="todo.completed ? 'success' : 'secondary'">
@@ -20,7 +33,7 @@
              [ngClass]="todo.completed ? 'fa-check-circle' : 'fa-times-circle'">
           </i>
         </span>
-        <span class="button tiny todo-button" (click)="updateTodo(todo)">
+        <span class="button tiny todo-button" (click)="updating = todo">
           Update
         </span>
         <span class="button tiny alert todo-button"
