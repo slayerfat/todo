@@ -1,6 +1,6 @@
 import { TodoMigration } from './TodoMigration';
 import { TodoCollection } from '../../shared/collections/todos/TodoCollection';
-import { APP_CONFIG } from '../../app-config';
+import { APP_CONFIG } from '../../shared/config/app-config';
 
 // TODO create real user migration.
 const user = {_id: '123'};

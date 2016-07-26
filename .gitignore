@@ -2,7 +2,7 @@
 node_modules/
 
 # App env file
-app-config.ts
+shared/config/app-config.ts
 
 # NPM
 npm-debug.log
