@@ -10,7 +10,7 @@ declare var Fake: {
    * the fields to be included in the user object result:
    * name, surname, fullname, username, email, emails.address, profile.name
    *
-   * @param fields
+   * @param {array} fields
    */
   user(fields: []): UserObjectResult;
   fromArray(array: []): {};
