@@ -1,11 +1,12 @@
 import { Migration } from './Migration';
 import { Collection2 } from '../../shared/collections/Collection2';
+import { Todo } from '../../shared/collections/todos/Todo';
 
 export class TodoMigration extends Migration {
 
   protected ver = 1;
 
-  constructor(collection: Collection2<Object>, user) {
+  constructor(collection: Collection2<Todo>, user) {
     super(collection, user);
   }
 
