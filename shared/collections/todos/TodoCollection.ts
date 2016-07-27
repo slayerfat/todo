@@ -7,4 +7,10 @@ let TodoCollection: Collection2<Todo> = new Mongo.Collection<Todo>('todos');
 
 TodoCollection.attachSchema(TodoSchema);
 
+TodoCollection.allow({
+  insert: () => !!Meteor.user(),
+  update: () => !!Meteor.user(),
+  remove: () => !!Meteor.user()
+});
+
 export { TodoCollection }

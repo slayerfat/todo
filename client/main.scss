@@ -22,3 +22,5 @@ $fa-font-path: "/fonts";
 
 // http://foundation.zurb.com/sites/docs/flexbox.html#enabling-flexbox-mode
 @include foundation-everything(true);
+
+@import "../node_modules/angular2-meteor-accounts-ui/build/login-buttons";
