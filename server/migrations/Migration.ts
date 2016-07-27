@@ -14,7 +14,6 @@ export abstract class Migration {
 
   /**
    * The user to be associated to the new migrations.
-   * TODO change type to real User interface
    */
   protected user: {_id: string};
 
