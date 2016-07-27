@@ -8,6 +8,7 @@ import {
   Control
 } from '@angular/common';
 import { TodoCollection } from '../../../shared/collections/todos/TodoCollection';
+import { Meteor } from 'meteor/meteor';
 
 @Component({
   selector: 'add-todo',
@@ -23,19 +24,35 @@ export class AddTodoComponent implements OnInit {
       contents: ['', Validators.compose([
         Validators.required,
         Validators.minLength(5),
-        Validators.maxLength(255)
+        Validators.maxLength(255),
+        this.isLogged
       ])]
     });
   }
 
   public addTodo(todo) {
-    if (this.todo.valid) {
-      TodoCollection.insert({
-        owner: '123123', // TODO add real user
-        contents: todo.contents
-      });
+    if (Meteor.userId()) {
+      if (this.todo.valid) {
+        TodoCollection.insert({
+          owner: '123123',
+          contents: todo.contents
+        });
 
-      (<Control>this.todo.controls['contents']).updateValue('');
+        (<Control>this.todo.controls['contents']).updateValue('');
+      }
     }
+  }
+
+  /**
+   * Checks if the user is logged, used in the form validation.
+   *
+   * @returns {null | Object}
+   */
+  private isLogged() {
+    if (Meteor.userId()) {
+      return null; // null means ok.
+    }
+
+    return {isLogged: 'You must be logged to add a Todo.'};
   }
 }

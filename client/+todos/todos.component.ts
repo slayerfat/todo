@@ -28,6 +28,10 @@ export class TodosComponent implements OnInit {
   }
 
   public updateTodoStatus(todo: Todo): void {
+    if (!this.isLogged()) {
+      return;
+    }
+
     TodoCollection.update(todo._id, {
       $set: {
         completed: !todo.completed
@@ -38,7 +42,7 @@ export class TodosComponent implements OnInit {
   public updateTodo(ok = true): void {
     // if the user cancels the update,
     // we have to update and return early
-    if (ok === false || this.updating === null) {
+    if (ok === false || this.updating === null || !this.isLogged()) {
       this.updating       = null;
       this.todoInputError = null;
       return;
@@ -64,6 +68,19 @@ export class TodosComponent implements OnInit {
   }
 
   public removeTodo(todo: Todo): void {
+    if (!this.isLogged()) {
+      return;
+    }
+
     TodoCollection.remove(todo._id);
+  }
+
+  /**
+   * Checks if the user is logged in.
+   *
+   * @returns {boolean}
+   */
+  public isLogged(): boolean {
+    return !!Meteor.userId();
   }
 }

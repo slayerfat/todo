@@ -33,10 +33,13 @@
              [ngClass]="todo.completed ? 'fa-check-circle' : 'fa-times-circle'">
           </i>
         </span>
-        <span class="button tiny todo-button" (click)="updating = todo">
+        <span *ngIf="isLogged()"
+              class="button tiny todo-button"
+              (click)="updating = todo">
           Update
         </span>
-        <span class="button tiny alert todo-button"
+        <span *ngIf="isLogged()"
+              class="button tiny alert todo-button"
               (click)="removeTodo(todo)">
           Remove
         </span>
