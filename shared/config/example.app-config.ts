@@ -5,6 +5,11 @@
  * app-config.ts and export the constant: export const APP_CONFIG = ...
  */
 const APP_CONFIG = {
+  user: {
+    name: '',
+    email: '',
+    password: ''
+  },
   migrations: {
     migrate: false,
     reset: false
